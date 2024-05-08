@@ -1,0 +1,10 @@
+# Cypress
+/cypress/reports/*
+cypress/videos/
+.jsonlogs/
+jsonlogs/
+/cypress/screenshots/*
+/cypress/downloads/*
+
+# dependencies
+/node_modules

@@ -1,0 +1,23 @@
+{
+    "json": {
+      "enabled": true,
+      "output": "jsonlogs/log.json",
+      "formatter": "./cypress/cucumber-json-formatter"
+    },
+    "messages": {
+      "enabled": false,
+      "output": "jsonlogs/messages.ndjson"
+    },
+    "html": {
+      "enabled": false
+    },
+    "stepDefinitions": [
+      "[filepath]/**/*.{js,ts}",
+      "[filepath].{js,ts}",
+      "cypress/support/steps/*.{js,ts}",
+      "[filepath]\\***.{js,ts}",
+      "[filepath].{js,ts}",
+      "cypress\\support\\steps\\*.{js,ts}"
+    ]
+  }
+  
