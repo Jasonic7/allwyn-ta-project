@@ -1,5 +1,5 @@
 export class Button {
-    rootUnit: Cypress.Chainable<JQuery<HTMLElement>>;
+    rootUnit: Cypress.Chainable<JQuery>;
 
     constructor(rootUnit:Cypress.Chainable<JQuery>){
         this.rootUnit = rootUnit
@@ -13,7 +13,7 @@ export class Button {
         return this.rootUnit.should('not.be.disabled');
     }
 
-    public clickButton() {
+    public click() {
         return this.rootUnit.click({force:true});
     }
 }

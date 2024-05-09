@@ -5,12 +5,13 @@ export class FormFragmentPO {
         this.rootUnit = rootUnit
     }
 
-    get placeholder() {
+    get placeholder():Cypress.Chainable<string> {
         return this.rootUnit.invoke('attr','placeholder')
     }
 
     public typeInto(input:string) {
-        return this.rootUnit.type(input);
+        return this.rootUnit.type(input.trim(),{force:true});
     }
 
+    
 }

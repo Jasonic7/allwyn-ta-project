@@ -4,6 +4,7 @@ import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-prepro
 import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild';
 
 export default defineConfig({
+  chromeWebSecurity: false,
   e2e: {
     experimentalRunAllSpecs: true,
     specPattern: "cypress/integration/*.feature",
@@ -17,7 +18,11 @@ export default defineConfig({
 			);
 			return config;
     },
-    baseUrl: 'http://www.saucedemo.com/'
+    baseUrl: 'https://www.saucedemo.com/'
   },
-  retries: 1
+  env: {
+
+		TAGS: 'not @manual and not @skip'
+	},
+  retries: 0
 });
