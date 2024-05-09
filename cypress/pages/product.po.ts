@@ -7,11 +7,11 @@ export class ProductPO {
     }
 
     get name() {
-        return this.rootUnit.find('.inventory_item_name ').invoke('text')
+        return this.rootUnit.find('.inventory_item_name').invoke('text')
     }
 
     get description() {
-        return this.rootUnit.find('.inventory_item_desc ').invoke('text')
+        return this.rootUnit.find('.inventory_item_desc').invoke('text')
     }
 
     get price() {
@@ -20,5 +20,13 @@ export class ProductPO {
 
     addToCartButton() {
         return new Button(this.rootUnit.find('.inventory_item_price').find('.btn_inventory'))
+    }
+
+    selectProductViaImage() {
+        return this.rootUnit.find('a').first()
+    }
+
+    selectProductViaName() {
+        return this.rootUnit.find('a').last()
     }
 }

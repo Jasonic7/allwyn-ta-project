@@ -8,3 +8,5 @@ jsonlogs/
 
 # dependencies
 /node_modules
+
+.vscode/settings.json

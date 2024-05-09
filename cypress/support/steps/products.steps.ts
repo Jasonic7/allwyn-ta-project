@@ -37,3 +37,32 @@ Given(/^the product '(.+)' has the description '(.+)'$/, (product:string, descri
         expect(dsc.trim()).equal(description.trim())
     })
 })
+
+
+Given(/^the user clicks on '(.+)' on products page$/, (product:string)=>{
+    productsPage.getItemByName(product).selectProductViaName();
+});
+
+Given(/^the user clicks on image of '(.+)' on products page$/, (product:string)=>{
+    productsPage.getItemByName(product).selectProductViaImage();
+});
+
+Given(/^the detailed information is shown for '(.+)' product$/, (product:string)=>{
+
+})
+
+Given(/^a 'Back to products' button is shown$/, (product:string)=>{
+
+})
+
+Given(/^the name of the product is '(.+)'$/, (product:string)=>{
+
+})
+
+Given(/^the price of the product is '(.+)'$/, (product:string)=>{
+
+})
+
+Given(/^the price of the product is '(.+)'$/, (product:string)=>{
+
+})
