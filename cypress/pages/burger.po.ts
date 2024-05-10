@@ -11,4 +11,7 @@ export class BurgerPO {
 		return this.rootUnit.find('nav').contains('a',link)
 	}
 
+	getAllLinks(){
+		return this.rootUnit.find('a')
+	}
 }

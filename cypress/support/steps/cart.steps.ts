@@ -23,6 +23,11 @@ Given(/^the user clicks on 'Remove' for '(.+)' product on Cart page$/, (productN
 	cartPage.getItemByName(productName).removeButton.click();
 })
 
+Given(/^the '(.+)' and '(.+)' labels are show on Cart page$/, (label1: string, label2: string)=>{
+	cy.wrap(cartPage).find('div')
+	cy.wrap(cartPage).find('div')
+})
+
 Given(/^the 'Continue Shopping' button is shown on Cart page$/, ()=>{
 	cartPage.continueShopping.should('exist');
 	cartPage.continueShopping.should('be.enabled');
@@ -41,9 +46,6 @@ Given(/^the user clicks on 'Continue Shopping' button on Cart page$/, ()=>{
 	cartPage.continueShopping.click();
 })
 
-Given(/^the user clicks on 'Checkout' button on Cart page$/, ()=>{
-	cartPage.checkout.click();
-})
 
 Given(/^the user clicks on '(.+)' on Cart page$/, (product:string)=>{
     cartPage.getItemByName(product).selectItemOnCart();
@@ -53,7 +55,14 @@ Given(/^the user clicks on '(.+)' on Cart page$/, (product:string)=>{
 Given(/^the item '(.+)' has price '(.+)'$/, (item:string,price:string)=>{
     cartPage.getItemByName(item).price.then((pr)=>{
         expect(pr.trim()).equal(price.trim())
-    })});
+	})
+});
+
+Given(/^the item '(.+)' has quantity '(.+)'$/, (item:string,quantity:string)=>{
+    cartPage.getItemByName(item).quantity.then((pr)=>{
+        expect(pr.trim()).equal(quantity.trim())
+	})
+});
 
 Given(/^the item '(.+)' has the description '(.+)'$/, (item:string,description:string)=>{
 	cartPage.getItemByName(item).description.then((dsc)=>{

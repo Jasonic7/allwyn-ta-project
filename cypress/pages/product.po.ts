@@ -6,7 +6,7 @@ export interface CartProduct{
 	readonly price:Cypress.Chainable<string>;
 	readonly addToCartButton:Button;
 	readonly removeButton:Cypress.Chainable<JQuery<HTMLButtonElement>>;
-	readonly quantity:Cypress.Chainable<JQuery<HTMLElement>>;
+	readonly quantity:Cypress.Chainable<string>;
 	selectItemOnCart():Cypress.Chainable<JQuery<HTMLAnchorElement>>;
 }
 
@@ -48,7 +48,7 @@ export class ProductPO implements IProduct{
 	}
 
 	get quantity() {
-		return this.rootUnit.find('.cart_quantity')
+		return this.rootUnit.find('.cart_quantity').invoke('text')
 	}
 
     selectProductViaImage() {

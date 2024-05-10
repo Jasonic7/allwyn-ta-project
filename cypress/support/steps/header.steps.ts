@@ -2,6 +2,10 @@ import { Given } from '@badeball/cypress-cucumber-preprocessor';
 import { HeaderPO } from '../../pages/header.po';
 const headerPage = new HeaderPO('.header_container')
 
+Given(/^the '(.+)' label is shown$/, (heading: string)=>{
+    headerPage.headerTitle.should('have.text',heading)
+})
+
 Given(/^a 'Back to products' button is shown$/, ()=>{
 	headerPage.backToProducts.should('exist')
 	headerPage.backToProducts.should('not.be.disabled')

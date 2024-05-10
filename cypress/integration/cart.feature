@@ -14,6 +14,8 @@ Scenario: View items on cart
 	And the user clicks on 'Add to cart' for 'Test.allTheThings() T-Shirt (Red)' product
 	When the user clicks on 'Cart' button
 	Then the Cart page is shown
+	And the 'Your Cart' label is shown
+	# And the 'QTY' and 'Description' labels are show on Cart page
 	And the Cart page contains the following items:
 	| Items                             |
 	| Sauce Labs Backpack               |
@@ -21,6 +23,7 @@ Scenario: View items on cart
 	| Test.allTheThings() T-Shirt (Red) |
 	And the 'Continue Shopping' button is shown on Cart page
 	And the 'Checkout' button is shown on Cart page
+	And the item 'Sauce Labs Backpack' has quantity '1'
 	And the item 'Sauce Labs Backpack' has price '$29.99'
 	And the item 'Sauce Labs Backpack' has the description 'carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.'
 
