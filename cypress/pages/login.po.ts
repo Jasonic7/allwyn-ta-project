@@ -32,7 +32,14 @@ export class LoginPO {
     public get loginButton() {
         return new Button(this.rootUnit.find('.submit-button'))
     }
-
+	
+	public closeErrorMessage() {
+		return new Button(this.errorElement.find('.error-button')).click();
+	}
+	
+	public get errorElement() {
+		return this.rootUnit.find('.error-message-container>h3')
+	}
     // Helpers
     private get form() {
         return new FormPO(cy.get('form'));

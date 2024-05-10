@@ -12,6 +12,5 @@ export class FormFragmentPO {
     public typeInto(input:string) {
         return this.rootUnit.type(input.trim(),{force:true});
     }
-
     
 }
