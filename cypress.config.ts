@@ -2,6 +2,7 @@ import { defineConfig } from 'cypress';
 import createBundler from '@bahmutov/cypress-esbuild-preprocessor';
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor';
 import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild';
+import {spawn} from 'child_process';
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -11,11 +12,15 @@ export default defineConfig({
     async setupNodeEvents(on, config) {
 			await addCucumberPreprocessorPlugin(on, config);
 			on(
-				"file:preprocessor",
+				'file:preprocessor',
 				createBundler({
 					plugins: [createEsbuildPlugin(config)],
 				})
 			);
+
+      // on('after:run',()=>{
+      //   const generateHtml = spawn('node',['cucumber-html-reporter.js'])
+      // });
 			return config;
     },
     baseUrl: 'https://www.saucedemo.com/'

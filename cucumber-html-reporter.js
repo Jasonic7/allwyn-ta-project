@@ -14,8 +14,7 @@ report.generate({
 	reportName: 'Allwyn TA report Test Execution Report ' + (new Date).getDate() + '/' + month + '/' + (new Date).getFullYear(),
 	metadata: {
 		browser: {
-			name: 'chrome',
-			version: '110'
+			name: 'chrome'
 		},
 		device: hostnameofpc,
 		platform: {
