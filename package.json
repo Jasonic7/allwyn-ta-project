@@ -4,19 +4,21 @@
   "description": "TA Project - Iasonas Tsetsenekos",
   "main": "index.js",
   "scripts": {
-    "report": "node cucumber-html-reporter.js"
+    "report": "node cucumber-html-reporter.js",
+    "clear": "node clear-report.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "@badeball/cypress-cucumber-preprocessor": "^20.0.4",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
     "cypress": "~12.5.1",
     "cypress-mochawesome-reporter": "^3.3.0",
+    "esbuild": "^0.20.2",
     "eslint-plugin-cypress": "^2.13.3",
+    "fs-extra": "^11.2.0",
     "multiple-cucumber-html-reporter": "~3.6.2",
-    "typescript": "^4.0.8",
-    "esbuild": "^0.20.2"
+    "typescript": "^4.0.8"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,

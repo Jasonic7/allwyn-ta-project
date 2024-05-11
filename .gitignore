@@ -1,5 +1,4 @@
 # Cypress
-/cypress/reports/*
 cypress/videos/
 .jsonlogs/
 jsonlogs/

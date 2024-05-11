@@ -18,9 +18,6 @@ export default defineConfig({
 				})
 			);
 
-      // on('after:run',()=>{
-      //   const generateHtml = spawn('node',['cucumber-html-reporter.js'])
-      // });
 			return config;
     },
     baseUrl: 'https://www.saucedemo.com/'
