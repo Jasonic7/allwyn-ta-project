@@ -33,17 +33,9 @@ export class CheckoutPO {
 		return this.rootUnit.find('.error-message-container>h3')
 	}
 
-	get summaryInfo() {
-		return cy.get('.checkout_summary_container .summary_info')
-	}
-
 	//Helper
 	private get form() {
         return new FormPO(cy.get('.checkout_info'));
     }
-
-	public cartList() {
-		return new CartPO('.checkout_summary_container')
-	}
 
 }

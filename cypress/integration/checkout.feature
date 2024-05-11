@@ -73,7 +73,7 @@ Scenario: Checkout page - second step - view items
 	And the item 'Sauce Labs Backpack' has the description 'carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.' on Checkout page
 	
 
-Scenario: Checkout page - second step - view summary info
+Scenario: View summary page
 	Given the user clicks on 'Checkout' button on Cart page
 	And the 'Checkout: Your Information' label is shown
 	And the user types 'Matt' as First Name
@@ -81,8 +81,57 @@ Scenario: Checkout page - second step - view summary info
 	And the user types '125-24' as Zip/Postal Code
 	When the user clicks on 'Continue' button on Checkout page
 	And the 'Checkout: Overview' label is shown
-	Then the 'Payment Information:' is 'SauceCard #31337'
-	And the 'Shipping Information:' is 'Free Pony Express Delivery!'
-	And the 'Price Total' is 'Item total: $95.97'
-	And the 'Price Total' is 'Tax: $7.68'
-	And the 'Total' is '$103.65'
+	Then 'Payment Information:' is 'SauceCard #31337'
+	And 'Shipping Information:' is 'Free Pony Express Delivery!'
+	And 'Price Total' has 'Item total: $95.97' and 'Tax: $7.68'
+	And 'Total' is '$103.65'
+	And the 'Finish' button is shown on Summary page
+	And the 'Cancel' button is shown on Summary page
+
+
+Scenario: Verify user is redirected to Products page
+	Given the user clicks on 'Checkout' button on Cart page
+	And the 'Checkout: Your Information' label is shown
+	And the user types 'Matt' as First Name
+	And the user types 'Smith' as Last Name
+	And the user types '125-24' as Zip/Postal Code
+	And the user clicks on 'Continue' button on Checkout page
+	When the user clicks on 'Cancel' button on Summary page
+	Then the user views the Products page
+
+
+Scenario: Verify user is redirected to Cart page
+	Given the user clicks on 'Checkout' button on Cart page
+	And the 'Checkout: Your Information' label is shown
+	And the user types 'Matt' as First Name
+	And the user types 'Smith' as Last Name
+	And the user types '125-24' as Zip/Postal Code
+	And the user clicks on 'Continue' button on Checkout page
+	When the user clicks on 'Cart' button
+	Then the Cart page is shown
+
+
+Scenario: Complete order and return to Products page
+	Given the user clicks on 'Checkout' button on Cart page
+	And the 'Checkout: Your Information' label is shown
+	And the user types 'Matt' as First Name
+	And the user types 'Smith' as Last Name
+	And the user types '125-24' as Zip/Postal Code
+	And the user clicks on 'Continue' button on Checkout page
+	When the user clicks on 'Finish' button on Summary page
+	Then the 'Checkout: Complete!' label is shown
+	And the message 'Thank you for your order!' 'Your order has been dispatched, and will arrive just as fast as the pony can get there!' is shown
+
+
+Scenario: Complete order
+	Given the user clicks on 'Checkout' button on Cart page
+	And the 'Checkout: Your Information' label is shown
+	And the user types 'Matt' as First Name
+	And the user types 'Smith' as Last Name
+	And the user types '125-24' as Zip/Postal Code
+	And the user clicks on 'Continue' button on Checkout page
+	When the user clicks on 'Finish' button on Summary page
+	Then the 'Checkout: Complete!' label is shown
+	And the message 'Thank you for your order!' 'Your order has been dispatched, and will arrive just as fast as the pony can get there!' is shown
+	And the user clicks on 'Back Home' button
+    And the user views the Products page
